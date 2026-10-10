@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rafael Miranda | Presentación</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Barra lateral -->
+  <aside class="side">
+    <a href="#inicio" class="side-logo" title="Inicio">&gt;_</a>
+    <a href="#inicio" title="Inicio">⌂</a>
+    <a href="#sobre-mi" title="Sobre mí">☰</a>
+    <a href="#galeria" title="Galería">▦</a>
+  </aside>
+
+  <div class="content">
+    <!-- Barra superior estilo Pinterest -->
+    <header class="topbar">
+      <div class="search">
+        <span>⌕</span>
+        <input id="search" type="text" placeholder="buscar en mi mundo... (ej: ajedrez, ia, familia)" autocomplete="off" spellcheck="false" />
+      </div>
+      <nav class="chips" id="chips">
+        <button class="chip active" data-filter="todos">Todos</button>
+        <button class="chip" data-filter="ia">IA</button>
+        <button class="chip" data-filter="ciber">Ciberseguridad</button>
+        <button class="chip" data-filter="tics">TICs</button>
+        <button class="chip" data-filter="mate">Matemáticas</button>
+        <button class="chip" data-filter="juegos">Juegos</button>
+        <button class="chip" data-filter="personas">Personas</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Presentación + bienvenida -->
+      <section id="inicio" class="hero">
+        <p class="prompt">rafael@hacklab:~$ whoami</p>
+        <h1 class="glitch" data-text="Rafael Miranda">Rafael Miranda</h1>
+        <p class="typing"><span id="typed"></span><span class="cursor">▮</span></p>
+        <p class="welcome">¡Hola! ¡Bienvenido a mi espacio personal! 👋</p>
+      </section>
+
+      <!-- Descripción personal -->
+      <section id="sobre-mi" class="about">
+        <article class="win">
+          <div class="win-bar"><i></i><i></i><i></i><span>sobre_mi.md</span></div>
+          <div class="win-body">
+            <p>Soy <strong>Rafael Miranda</strong>, técnico en Informática y próximo ingeniero en Tecnologías de la Información y las Comunicaciones (TICs). Me apasiona la tecnología, especialmente el desarrollo de <strong>inteligencia artificial</strong>, el <strong>Machine Learning</strong>, el <strong>Deep Learning</strong> y la <strong>ciberseguridad</strong>. Mi objetivo es seguir aprendiendo, desarrollar nuevas habilidades y crear soluciones tecnológicas que puedan contribuir a resolver problemas del mundo real.</p>
+            <p>Más allá de la tecnología, considero que disfrutar de la vida y compartir momentos con las personas que quiero es fundamental. Me encanta pasar tiempo con mi novia, mis amigos y mis seres queridos, ya sea conversando, compartiendo experiencias o simplemente disfrutando de su compañía.</p>
+            <p>En mi tiempo libre disfruto jugar videojuegos, practicar ajedrez, leer, escuchar música y explorar nuevos conocimientos. También me gusta aprender sobre matemáticas, descubrir cómo funcionan las cosas y enfrentar retos que me permitan desarrollar mi pensamiento lógico y ampliar mi manera de ver el mundo.</p>
+            <p>Gracias por visitar mi página. ¡Espero que conozcas un poco más sobre mí, mis intereses y mi pasión por la tecnología! 🚀</p>
+          </div>
+        </article>
+
+        <article class="win">
+          <div class="win-bar"><i></i><i></i><i></i><span>perfil.json</span></div>
+          <pre class="win-body json"><span class="dim">$</span> cat perfil.json
+{
+  <span class="k">"nombre"</span>: <span class="s">"Rafael Miranda"</span>,
+  <span class="k">"rol"</span>: <span class="s">"Técnico en Informática"</span>,
+  <span class="k">"siguiente"</span>: <span class="s">"Ing. en TICs"</span>,
+  <span class="k">"foco"</span>: [
+    <span class="s">"IA"</span>, <span class="s">"ML"</span>,
+    <span class="s">"Deep Learning"</span>,
+    <span class="s">"Ciberseguridad"</span>
+  ],
+  <span class="k">"filosofia"</span>: <span class="s">"nunca_dejar_de_aprender"</span>
+}</pre>
+        </article>
+      </section>
+
+      <!-- Galería estilo Pinterest -->
+      <section id="galeria">
+        <h2 class="sec-title"><span class="hash">#</span> galeria</h2>
+        <div class="grid" id="grid">
+
+          <article class="pin win" data-cat="todos" data-text="intereses gustos videojuegos ajedrez lectura música matemáticas ia ciberseguridad">
+            <div class="win-bar"><i></i><i></i><i></i><span>intereses.sh</span></div>
+            <div class="win-body">
+              <ul class="tags">
+                <li>🧠 IA / ML / DL</li>
+                <li>🛡️ Ciberseguridad</li>
+                <li>🎮 Videojuegos</li>
+                <li>♟️ Ajedrez</li>
+                <li>📚 Lectura</li>
+                <li>🎵 Música</li>
+                <li>∑ Matemáticas</li>
+              </ul>
+            </div>
+          </article>
+
+          <figure class="pin photo" data-cat="ciber" data-text="ciberseguridad terminal ftp flags hack the box">
+            <img src="{{ url_for('static', filename='img/cibersegu.jpeg') }}" alt="Setup con terminal resolviendo un reto de ciberseguridad" loading="lazy" />
+            <figcaption><span class="tag">#ciberseguridad</span>Resolviendo retos: FTP, flags y mucha terminal</figcaption>
+          </figure>
+
+          <figure class="pin photo" data-cat="personas" data-text="novia arte digital exposición inmersivo">
+            <img src="{{ url_for('static', filename='img/novia.jpeg') }}" alt="Con mi novia en una exposición de arte digital inmersivo" loading="lazy" />
+            <figcaption><span class="tag">#novia</span>Explorando arte digital inmersivo 💜</figcaption>
+          </figure>
+
+          <figure class="pin photo" data-cat="ia" data-text="ia inteligencia artificial señas visión por computadora python">
+            <img src="{{ url_for('static', filename='img/ia.jpeg') }}" alt="Proyecto de reconocimiento de señas con IA" loading="lazy" />
+            <figcaption><span class="tag">#ia</span>Proyecto: reconocimiento de señas con visión por computadora</figcaption>
+          </figure>
+
+          <figure class="pin photo" data-cat="mate" data-text="matemáticas fourier series pizarrón cálculo">
+            <img src="{{ url_for('static', filename='img/mate.jpeg') }}" alt="Pizarrón con serie de Fourier" loading="lazy" />
+            <figcaption><span class="tag">#matematicas</span>Series de Fourier en el pizarrón</figcaption>
+          </figure>
+
+          <article class="pin win" data-cat="todos" data-text="filosofía aprender curiosidad mejor versión">
+            <div class="win-bar"><i></i><i></i><i></i><span>filosofia.txt</span></div>
+            <div class="win-body quote">Nunca dejar de aprender, mantener la curiosidad y trabajar constantemente para convertirme en una mejor versión de mí mismo.</div>
+          </article>
+
+          <figure class="pin photo" data-cat="juegos" data-text="videojuegos squad amigos fortnite">
+            <img src="{{ url_for('static', filename='img/juegos.jpeg') }}" alt="Partida de videojuego con amigos" loading="lazy" />
+            <figcaption><span class="tag">#videojuegos</span>Squad en línea</figcaption>
+          </figure>
+
+          <figure class="pin photo" data-cat="tics" data-text="tics lcd hola mundo arduino electrónica">
+            <img src="{{ url_for('static', filename='img/tics.jpeg') }}" alt="Pantalla LCD mostrando Hola mundo" loading="lazy" />
+            <figcaption><span class="tag">#tics</span>Mi “Hola mundo” en una pantalla LCD</figcaption>
+          </figure>
+
+          <figure class="pin photo" data-cat="personas" data-text="familia perrito">
+            <img src="{{ url_for('static', filename='img/familia.jpeg') }}" alt="Foto familiar con un perrito" loading="lazy" />
+            <figcaption><span class="tag">#familia</span>Mi familia, mi base 💜</figcaption>
+          </figure>
+
+          <figure class="pin photo" data-cat="juegos" data-text="ajedrez tablero lógica">
+            <img src="{{ url_for('static', filename='img/chess.jpeg') }}" alt="Tablero de ajedrez" loading="lazy" />
+            <figcaption><span class="tag">#ajedrez</span>Tablero listo: ¿una partida?</figcaption>
+          </figure>
+
+          <figure class="pin photo" data-cat="ia mate" data-text="libros inteligencia artificial cálculo matemáticas avanzadas lectura">
+            <img src="{{ url_for('static', filename='img/libros.jpeg') }}" alt="Libros de IA y matemáticas" loading="lazy" />
+            <figcaption><span class="tag">#lectura</span>Biblioteca: IA, cálculo y matemáticas avanzadas</figcaption>
+          </figure>
+
+          <figure class="pin photo" data-cat="personas" data-text="amigos escuela">
+            <img src="{{ url_for('static', filename='img/amigos.jpeg') }}" alt="Amigos en la escuela" loading="lazy" />
+            <figcaption><span class="tag">#amigos</span>Buenos momentos con amigos en la escuela</figcaption>
+          </figure>
+
+          <article class="pin win" data-cat="todos" data-text="estado status aprendiendo">
+            <div class="win-bar"><i></i><i></i><i></i><span>status.log</span></div>
+            <div class="win-body status">
+              <p><span class="ok">[ OK ]</span> curiosidad: activa</p>
+              <p><span class="ok">[ OK ]</span> aprendizaje: en progreso</p>
+              <p><span class="ok">[ OK ]</span> café: suficiente</p>
+              <p><span class="ok">[ OK ]</span> hackeo ético: siempre con permiso</p>
+            </div>
+          </article>
+        </div>
+        <p class="empty" id="empty" hidden>&gt; 0 resultados. Prueba con otra palabra.</p>
+      </section>
+    </main>
+
+    <footer class="footer">&gt; hecho con 💜 por Rafael Miranda · <span id="year"></span></footer>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
+    <img id="lbImg" alt="" />
+    <p id="lbCap"></p>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
